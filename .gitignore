@@ -1,0 +1,10 @@
+**/*.dtb
+**/*.cmd
+**/*.ko
+**/*.symvers
+**/*.order
+**/*.mod
+**/*.mod.c
+
+**/*.o
+**/etm_regulator
