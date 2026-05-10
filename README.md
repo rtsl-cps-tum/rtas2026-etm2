@@ -1,5 +1,5 @@
-## ETM^2: Empowering Traditional Memory Bandwidth Regulation using ETM
-ETM^2 regulator is Memory Bandwidth Regulator that uses the CoreSight Debug and Trace infrastructure on the Arm Cortex-A based SoCs.
+## ETM²: Empowering Traditional Memory Bandwidth Regulation using ETM
+ETM² regulator is Memory Bandwidth Regulator that uses the CoreSight Debug and Trace infrastructure on the Arm Cortex-A based SoCs.
 For more information have a look at: https://arxiv.org/abs/2603.16490
 
 This repo contains an example implementation of ETM based Memory Bandwidth regulation for the ZynqMP SoCs such as the ZCU102 platform.
@@ -9,14 +9,14 @@ For an implementation on a linux based platform we require two main components:
 
 ### Compilation
 For kernel module:
-```
+```bash
 ## Assuming cross compilation on an x86_64 platform
 $ cd ./kernel_module/
 $ make KDIR=/path/to/kernel/source
 ```
 
 For Regulator
-```
+```bash
 ## Assuming cross compilation on an x86_64 platform
 $ cd ./regulator/
 $ make 
@@ -26,12 +26,12 @@ $ make
 ```
 
 ### Usage
-```
+```bash
 ## Insert the kernel module to register the IRQ handlers
 $ insmod cti_irq_driver.ko
 
-## Enable ETM^2 memory bandwidth regulation
-## For example with ETM^2 PR method with nearly 100, 200, 400, 800 MB/s 
+## Enable ETM² memory bandwidth regulation
+## For example with ETM² PR method with nearly 100, 200, 400, 800 MB/s 
 ## regualtion target for Cores 0 to 3 respectively on the ZCU102 platform
 $ ./etm_regulator --budget 31 62 125 250 --cycle 24000 --mode 1
 
@@ -40,11 +40,11 @@ $ ./etm_regulator --budget <x x x x> --cycle <x> --mode <x>
     --budget(-b):  sets the combined budget in ETM counter for PMU
     --cycle(-c):   sets the regulation period
     --mode(-m)
-    \t 0 for No Regulation 
-    \t 1 for ETM PR algorithm
-    \t 2 for ETM TB 1:3 algorithm
-    \t 3 for ETM TB 2:2 algorithm
-    \t 4 for ETM TB 3:1 algorithm
+        0 for No Regulation 
+        1 for ETM PR algorithm
+        2 for ETM TB 1:3 algorithm
+        3 for ETM TB 2:2 algorithm
+        4 for ETM TB 3:1 algorithm
 ```
 For more information on intended usage and regulation have a look at: https://arxiv.org/abs/2603.16490
 
